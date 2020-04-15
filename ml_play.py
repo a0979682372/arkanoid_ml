@@ -100,16 +100,18 @@ def ml_loop():
             if scene_info.ball[1]<270:
                 platform_arrived=False
                 fall=True
-                ball_high=-1
             ##if scene_info.ball[1]>390:
             ##    platform_arrived=False
                 
-            if scene_info.ball[1]>350:
+            if scene_info.ball[1]>380:
                 if ball_high==-1:
                     ball_high=scene_info.ball[1]
                 else:
                     if scene_info.ball[1]<ball_high:
                         platform_arrived=False
+            
+            if scene_info.ball[1]<370:
+                ball_high=-1
 
 
             if platform_arrived==True:
