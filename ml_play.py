@@ -103,14 +103,16 @@ def ml_loop():
             ##if scene_info.ball[1]>390:
             ##    platform_arrived=False
                 
-            if scene_info.ball[1]>380:
+            if scene_info.ball[1]>390:
                 if ball_high==-1:
                     ball_high=scene_info.ball[1]
-                else:
-                    if scene_info.ball[1]<ball_high:
-                        platform_arrived=False
-            
-            if scene_info.ball[1]<370:
+                    ##print(1)
+                
+            if scene_info.ball[1]>380 and scene_info.ball[1]<390:
+                if ball_high>0 and scene_info.ball[1]<ball_high:
+                    platform_arrived=False   
+                    ##print(2)         
+            if scene_info.ball[1]<360:
                 ball_high=-1
 
 
@@ -119,6 +121,7 @@ def ml_loop():
 
             else:
                 if destination==-1:
+                    
                     if position<90:
                         ##print(1)
                         comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
